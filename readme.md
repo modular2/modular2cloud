@@ -41,3 +41,60 @@ modulae2Cloud 是一个支持LWM2M协议的轻量级IoT 应用服务器。支持
 + writeIPSO
 + deleteIPSO
 + getlistOfIPSO 
+# 数据库
+## 用户文档
+<pre><code>
+var userSchema = new mongoose.Schema({
+	admin:mongoose.Schema.Types.ObjectId,
+	name:String,
+	sublist:Array,
+	password:String,
+});
+</code></pre>
++ admin- 是管理员id
++ name- 用户名
++ sublist -订阅表
++ password-口令
+订阅表格式
+一个字符串，订阅的资源的URL 
+## 设备文档
+<pre><code> var deviceSchema = new mongoose.Schema({
+	name:String,
+	linkType:Number,
+	address:String,
+	devEUI:String,
+	admin:mongoose.Schema.Types.ObjectId,
+	profile:String,
+	status:Number,
+	data:Array,
+});
+ </code>
+ </pre>
+ 注：admin ID 如果等于记录的ID 那么该用户是管理员，否则是普通用户。
+ + name 设备名
+ + linkType -连接类型
+     + 0 CoAP/UDP
+     + 1 LoRA
+     + 2 oneNet
+     + 3 Arm Pelion
++ address IP 地址
++ devEUI 设备EUI
++ admin 管理员ID
++ profile 设备的IPSO Json
++ status 设备状态
++ data 设备历史数据
+
+# 操作过程说明
+## 订阅
++ 只有管理员用户可以向设备发送订阅命令和解除订阅命令格式为
+    + URL；obs=1 订阅
+    + URL；obs=0 取消订阅
++ 普通用户发送订阅命令时，并不向设备发送给obs 命令，只是将订阅的URL 放置在sublist 中。 取消订阅时，将URL从sublist 中去除。
++ 当设备上传了订阅数据后，通过MQTT 发送消息。
+## 读数据
++ 任何用户可以向设备发起读操作命令。
+## 写数据
++ 只有管理员可以向设备写数据。
+
+
+
