@@ -27,11 +27,13 @@ modulae2Cloud 是一个支持LWM2M协议的轻量级IoT 应用服务器。支持
 + readData
 + writeData
 + readHistory
-+ subscribe
++ observeData
 + publish
 + login
 + logout
 + addDevice
++ activeDevice
++ getDeviceObject
 + deleteDevice
 + getListOfDevice
 + addUser
