@@ -6,6 +6,7 @@ modulae2Cloud 是一个支持LWM2M协议的轻量级IoT 应用服务器。支持
 + Arm pelion
 + CoAP/UDP 直接接入
 + HTTP 直接接入
++ MQTT 协议
 + 其它LWM2M 接入网
 # 系统架构
 + 基于mongoDB ，express，angular，和nodeJS（MEAN stack）实现。
@@ -31,6 +32,7 @@ modulae2Cloud 是一个支持LWM2M协议的轻量级IoT 应用服务器。支持
 + publish
 + login
 + logout
++ dashboardInfo
 + addDevice
 + activeDevice
 + getDeviceObject
@@ -85,13 +87,17 @@ var userSchema = new mongoose.Schema({
 + profile 设备的IPSO Json
 + status 设备状态
 + data 设备历史数据
-
+# MQTT Broker
+  在modular2cloud 中，利用mosca 建立了一个MQTT Broker，它具有两个作用：
+  + 用于云端和客户端App 的即时通讯。
+  + 用于modular-2 通过MQTT 协议接入modular2Cloud
+  ## topic 
+  
 # 操作过程说明
 ## 订阅
 + 只有管理员用户可以向设备发送订阅命令和解除订阅命令格式为
     + URL；obs=1 订阅
     + URL；obs=0 取消订阅
-+ 普通用户发送订阅命令时，并不向设备发送给obs 命令，只是将订阅的URL 放置在sublist 中。 取消订阅时，将URL从sublist 中去除。
 + 当设备上传了订阅数据后，通过MQTT 发送消息。
 ## 读数据
 + 任何用户可以向设备发起读操作命令。
