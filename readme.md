@@ -80,7 +80,8 @@ var userSchema = new mongoose.Schema({
      + 0 CoAP/UDP
      + 1 LoRA
      + 2 oneNet
-     + 3 Arm Pelion
+	 + 3 MQTT
+     + 4 Arm Pelion
 + address IP 地址
 + devEUI 设备EUI
 + admin 管理员ID
@@ -91,8 +92,12 @@ var userSchema = new mongoose.Schema({
   在modular2cloud 中，利用mosca 建立了一个MQTT Broker，它具有两个作用：
   + 用于云端和客户端App 的即时通讯。
   + 用于modular-2 通过MQTT 协议接入modular2Cloud
-  ## topic 
-  
+  ## topic 命名规则
+  + 客户端发给服务器端的topic
+  + 服务器发给客户端的topic
+  + modular-2 发给服务器
+  + 服务器发给modular-2 
+
 # 操作过程说明
 ## 订阅
 + 只有管理员用户可以向设备发送订阅命令和解除订阅命令格式为
