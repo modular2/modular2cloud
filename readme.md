@@ -131,9 +131,10 @@ var userSchema = new mongoose.Schema({
 + 只有管理员用户可以向设备发送订阅命令和解除订阅命令格式为
     + URL；obs=1 订阅
     + URL；obs=0 取消订阅
-+ 当设备上传了订阅数据后，通过MQTT 发送消息。
++ 当设备上传了订阅数据后，通过MQTT 发送消息给相关的Client。topic 为 'serverToClient_'+ < admin_ID >,其中admin_id 是该设备管理员的ID。modular2Cloud 是以管理员的ID来限定topic 的命名空间的。
 ## 读数据
 + 任何用户可以向设备发起读操作命令。
+ 同样地，服务器收到了modular2 上传的读出数据后，通过MQTT 发送消息回来。
 ## 写数据
 + 只有管理员可以向设备写数据。
 
