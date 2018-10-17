@@ -100,18 +100,29 @@ var userSchema = new mongoose.Schema({
   + 用于modular-2 通过MQTT 协议接入modular2Cloud
   ## topic 命名规则
   + 客户端之间发送的topic
-   + topic ：admin_ID
-   + payload：CoAP messages  
+    + topic ：admin_ID
+    + payload：Client messages  
   + 服务器发给客户端的订阅topic 
     + topic: admin_ID
-	+ payload:CoAP messages
+	+ payload:CoAP message
   + modular-2 发给服务器
     + topic ："deviceToServer"
 	+ payload:CoAP messages
   + 服务器发给modular-2 
     + topic ：device_ID
 	+ payload:CoAP messages
+  ## Client message 格式
+  <pre><code>
+  Client_message={
+	  sender:user_id,
+	  content:String,
+  }
+  </code></pre>
   ##  CoAP Message 的格式
+  <pre><code>
+  CoAP_message="GET" URL,Options
+  CoAP_message="PUT" URL/value
+  </code></pre>
 # 操作过程说明
 ## 订阅
 + 只有管理员用户可以向设备发送订阅命令和解除订阅命令格式为
