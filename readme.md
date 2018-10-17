@@ -100,16 +100,16 @@ var userSchema = new mongoose.Schema({
   + 用于modular-2 通过MQTT 协议接入modular2Cloud
   ## topic 命名规则
   + 客户端之间发送的topic
-    + topic ："UserToUser"+admin_ID
+    + topic ："ClientToClient_"+admin_ID
     + payload：Client messages  
   + 服务器发给客户端的订阅topic 
-    + topic: "serverToUser"+admin_ID
+    + topic: "serverToClient_"+admin_ID
 	+ payload:CoAP message
   + modular-2 发给服务器
     + topic ："deviceToServer"
 	+ payload:CoAP messages
   + 服务器发给modular-2 
-    + topic ："ServerToDevice"+device_ID
+    + topic ："ServerToDevice_"+device_ID
 	+ payload:CoAP messages
   ## Client message 格式
   <pre><code>
