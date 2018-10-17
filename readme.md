@@ -120,8 +120,11 @@ var userSchema = new mongoose.Schema({
   </code></pre>
   ##  CoAP Message 的格式
   <pre><code>
-  CoAP_message="GET" URL,Options
+  CoAP_message=method URL,Options
   CoAP_message="PUT" URL/value
+  method=[GET,PUT,POST];
+  URL='/'+device_ID+'/'+Object_ID+'/'+Instant_ID+'/'+Resourec_ID
+  Option=opt+'='+value
   </code></pre>
 # 操作过程说明
 ## 订阅
