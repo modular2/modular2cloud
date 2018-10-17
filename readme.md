@@ -51,7 +51,7 @@ modulae2Cloud 是一个支持LWM2M和MQTT协议的轻量级IoT 应用服务器�
 var userSchema = new mongoose.Schema({
 	admin:mongoose.Schema.Types.ObjectId,
 	name:String,
-	sublist:Array,
+
 	password:String,
 });
 </code></pre>
@@ -69,6 +69,7 @@ var userSchema = new mongoose.Schema({
 	devEUI:String,
 	admin:mongoose.Schema.Types.ObjectId,
 	profile:String,
+	subscribe:Array,
 	status:Number,
 	data:Array,
 });
@@ -86,7 +87,11 @@ var userSchema = new mongoose.Schema({
 + devEUI 设备EUI
 + admin 管理员ID
 + profile 设备的IPSO Json
++ subscribe 订阅表
 + status 设备状态
+	+ 0 未激活
+	+ 1 已激活
+
 + data 设备历史数据
 # MQTT Broker
   在modular2cloud 中，利用mosca 建立了一个MQTT Broker，它具有两个作用：
