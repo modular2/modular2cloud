@@ -1,0 +1,26 @@
+  <div class="page-header" >
+  <h1 class="text-info">技术文档</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+  <a href="#" class="list-group-item ">简介</a>
+  <a href="#/docs_ipso" class="list-group-item active">IPSO 智能对象</a>
+  <a href="#/docs_lwm2m" class="list-group-item">LWM2M协议</a>
+  <a href="#/docs_coap" class="list-group-item">CoAP 协议</a>
+  <a href="#/docs_tocloud" class="list-group-item">mbed 软件编程</a>
+  <a href="#/docs_webAPI" class="list-group-item">Web API</a>
+</div>
+  </div>
+  <div class="col-md-6" >	
+<h3>IPSO 智能对象</h3>
+<p>为了实现物联网设备的互联互通，仅有协议的标准化是不够的。还需要对数据结构标准化。IPSO联盟就是致力于数据标准化的组织。</p>
+<p>IPSO联盟的全称是智能对象的互联网协议联盟,英文是IPSO (Internet Protocol for Smart Objects) Alliance。IPSO联盟最大的贡献应该是它对物联网设备中数据的标准化描述，从而推动物联网设备，云端系统，App 的互联互通。</p>
+ <p> 在IPSO 的框架下，每个设备都称为ENDPOINT，每个ENDPOINT 中有若干的对象（Objects），对象可以有几个对象的实例（instance），而实例中含义资源（Resources）。</p>
+<p>在物联网中，任何对象或服务都被抽象为“资源”, 任何事物，只要有被引用的必要，它就是一个资源(resource).IPSO 就是建立在这种理念上的。</p>
+<h3>智能对象一览表</h3>
+<div ng-repeat="ipso in ipsolist">
+<h3>对象 ID:{{ipso.objectID}} Name:{{ipso.name}}</h3>
+<p ng-repeat="res in ipso.resource">--资源 ID:{{res.resID}} Name:{{res.name}} Type:{{res.type}}</p>
+</div>
+</div>

@@ -1,0 +1,25 @@
+
+      <form id="loginForm"   class="form-horizontal" >
+        <h2 class="form-signin-heading" style="text-align:center;">{{title}}</h2>
+		<div class="form-group">
+		<label class="col-sm-4 control-label" for="username" >姓名</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" id="username" name="username" placeholder="user name" ng-model="username"/>
+		</div>
+	</div>
+		<div class="form-group">
+		<label class="col-sm-4 control-label" for="password" >口令</label>
+		<div class="col-sm-5 ">
+			 <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="password"/> 
+		</div>
+	</div>
+	
+<div class="form-group">
+<div class="col-sm-9 col-sm-offset-4">
+<button  class="btn btn-primary" name="signup" value="Sign up" ng-click="login()">登入</button>
+</div>
+	</div>
+      </form>
+ 
+  
+	 

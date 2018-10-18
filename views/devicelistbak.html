@@ -1,0 +1,41 @@
+ <div class="page-header" >
+  <h1 class="text-info">设备管理</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+    <a href="#/dashboard" class="list-group-item ">我的控制台</a>
+   <a href="#/userlist" class="list-group-item">人员</a>
+  <a href="#/devicelist" class="list-group-item active">设备</a>
+  <a href="#/devicecontrol" class="list-group-item">数据</a>
+  <a href="#" class="list-group-item">查询</a>
+   <a href="#/userChat" class="list-group-item">交流区</a>
+</div>
+  </div>
+    <div class="col-md-8" >	
+<h3>设备表</h3>
+<table class="table">
+<th>#
+<td>名称</td>
+<td>ID</td>
+<td>网络类型</td>
+<td>IP地址</td>
+<td>devEUI</td>
+<td>工作状态</td>
+<td>激活</td>
+</th>
+
+<tr ng-repeat="device in devicelist">
+<td>{{$index}}</td>
+<td>{{device.name}}</td>
+<td>{{device._id}}</td>
+<td>{{device.linkType}}</td>
+<td>{{device.address}}</td>
+<td>{{device.devEUI}}</td>
+<td>{{device.status}}</td>
+<td><button class="btn btn-info" ng-click="deldevice(device._id)">删除</button></td>
+</tr>
+</table>
+<a class="btn btn-info" href="#/newdevice">添加设备</a>
+</div>
+</div>

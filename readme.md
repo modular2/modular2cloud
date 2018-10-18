@@ -1,11 +1,12 @@
 # modular2Cloud
 modulae2Cloud 是一个支持LWM2M和MQTT协议的轻量级IoT 应用服务器。支持Mbed/modular2 设备快速接入物联网，并且实现数据访问，订阅，存储和数据可视化。
 # 可连接的接入平台
-+ 中国电信onenet
-+ 上海国动LoRa
-+ Arm pelion
-+ CoAP/UDP 直接接入
-+ HTTP 直接接入
++ 中国移动 onenet
++ 上海国动 LoRa
++  Arm 公司 pelion
+## 直接接入
++ CoAP/UDP  
++ HTTP  
 + MQTT 协议
 + 其它LWM2M 接入网
 # 系统架构

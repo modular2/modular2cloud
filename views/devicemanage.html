@@ -1,0 +1,68 @@
+  <div class="page-header" >
+  <h1 class="text-info">实时数据</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+  <a href="#/dashboard" class="list-group-item ">控制面板</a>
+   <a href="#/devicelist" class="list-group-item ">人员</a>
+  <a href="#/devicelist" class="list-group-item">设备</a>
+  <a href="#/devicecontrol" class="list-group-item active">实时数据</a>
+  <a href="#/historyData" class="list-group-item">历史数据</a>
+   <a href="#/userChat" class="list-group-item">交流</a>
+</div>
+  </div>
+<div class="col-md-8" >	
+<div id="container">Placeholder for chart</div>
+<h3>选择资源</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th style="width:30%">设备选择</th>
+<th>对象选择</th>
+<th>实例</th>
+<th>资源选择</th>
+<th>数据</th>
+</tr>
+</thead>
+<tr>
+<td><select class="form-control" ng-model="deviceSelected"  ng-change="selDevice(deviceSelected)">
+  <option ng-repeat="dev in devlist">{{dev.name}}</option>
+</select></td>
+<td><select class="form-control" ng-model="objSelected"  ng-change="selObject(objSelected)">
+  <option ng-repeat="obj in objlist">{{obj.id}}</option>
+</select></td>
+<td>0</td>
+<td><select class="form-control" ng-model="resSelected"  ng-change="selResource(resSelected)">
+  <option ng-repeat="res in reslist">{{res.id}}</option>
+</select></td>
+<td>{{device_status}}</td>
+</tr>
+<tr>
+<td>{{device_id}}</td>
+<td>{{obj_name}}</td>
+<td></td>
+<td>{{res_name}}</td>
+<td>{{res_value}}</td>
+</tr>
+</table>
+<div>
+<ul class="nav navbar-nav ">
+<button type="button " class="btn btn-info btn-sm"  ng-click="readData()" >读出数据 </button>  
+<button type="button " class="btn btn-info btn-sm" ng-disabled="! isValid" ng-click="writeData()" >写入数据 </button> 
+<button type="button " class="btn btn-info btn-sm" ng-disabled="! isValid" ng-click="Subscribe()" >订阅数据 </button> 
+<button type="button " class="btn btn-info btn-sm" ng-disabled="! isValid" ng-click="unSubscribe()" >取消订阅 </button> 
+<button type="button " class="btn btn-info btn-sm"   ng-click="test()" >测试</button>
+</ul>
+<form id="writeData" class="form-inline" style="display: none" >
+<div class="form-group"  style="margin-left:20px">
+ <label for="inputData">写入数据</label>
+    <input type="text" class="form-control" id="inputData" placeholder="写入数据" ng-model="result">    
+</div> 
+<button type="submit" class="btn btn-info" ng-click="submitData()">发送</button>
+<button type="submit" class="btn btn-info" ng-click="quit()">取消</button>
+</form>
+</div>
+</div>
+</div>
+    

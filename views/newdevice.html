@@ -1,0 +1,35 @@
+  <div class="page-header" >
+  <h1 class="text-info">添加新设备</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+  <a href="#" class="list-group-item active">控制面板</a>
+   <a href="#/userlist" class="list-group-item">人员</a>
+  <a href="#/devicelist" class="list-group-item">设备</a>
+  <a href="#/devicecontrol" class="list-group-item">实时数据</a>
+  <a href="#/historyData" class="list-group-item">历史</a>
+  <a href="#/userChat" class="list-group-item">交流区</a>
+</div>
+  </div>
+    <div class="col-md-6" >	
+<form name="frmBlog" class="col-sm-8" role="form" >
+ <p class="form-signin-heading" style="text-align:center;">{{title}}</p>
+	<div class="form-group">
+		<label class="col-sm-4 control-label" for="devicename">设备名称</label>	
+			<input type="text" class="form-control" id="devicename" name="devicename" placeholder="设备名称" ng-model="devicename"/>	
+	</div>
+	<div class="form-group">
+	<label class="col-sm-4 control-label" for="devEUI">设备类型</label>	
+	<select id="lunch" class="selectpicker form-control" data-live-search="true"  ng-model="linkType" ng-options="x for x in linkTypes">
+                </select> 
+	</div>
+	<div class="form-group">
+	<label class="col-sm-4 control-label" for="devEUI">devEUI</label>	
+	<input type="text" class="form-control" id="devicename" name="devEUI" placeholder="0" ng-model="devEUI"/>	
+	</div>
+   <button class="btn  btn-primary " ng-click="submit()">上传</button>     
+ </form>
+
+</div>
+</div>

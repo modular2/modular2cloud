@@ -1,0 +1,35 @@
+ <div class="page-header" >
+  <h1 class="text-info">人员管理</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+  <a href="#/dashboard" class="list-group-item ">控制面板</a>
+   <a href="#/devicelist" class="list-group-item active">人员</a>
+  <a href="#/devicelist" class="list-group-item">设备</a>
+  <a href="#/devicecontrol" class="list-group-item">实时数据</a>
+  <a href="#/historyData" class="list-group-item">历史数据</a>
+   <a href="#/userChat" class="list-group-item">交流</a>
+</div>
+  </div>
+    <div class="col-md-8" >	
+<h3>人员列表</h3>
+<table class="table">
+<th>#
+<td>名称</td>
+<td>ID</td>
+<td>状态</td>
+<td>操作</td>
+</th>
+
+<tr ng-repeat="user in userlist">
+<td>{{$index}}</td>
+<td>{{user.name}}</td>
+<td>{{user._id}}</td>
+<td>{{user.status}}</td>
+<td><button class="btn btn-info" ng-disabled="! isValid" ng-click="deluser(user._id)">删除</button></td>
+</tr>
+</table>
+<a class="btn btn-info" ng-disabled="! isValid" href="#/newuser">添加成员</a>
+</div>
+</div>

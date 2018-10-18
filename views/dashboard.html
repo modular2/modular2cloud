@@ -1,0 +1,51 @@
+ <div class="page-header" ng-app="modular2App">
+  <h1 class="text-info">控制面板</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+  <a href="#" class="list-group-item active">控制面板</a>
+   <a href="#/userlist" class="list-group-item">人员</a>
+  <a href="#/devicelist" class="list-group-item">设备</a>
+  <a href="#/devicecontrol" class="list-group-item">实时数据</a>
+  <a href="#/historyData" class="list-group-item">历史</a>
+  <a href="#/userChat" class="list-group-item">交流区</a>
+</div>
+  </div>
+    <div class="col-md-8" >	
+<h3>系统信息</h3>
+<table class="table text-center">
+<th>#
+<td>设备数</td>
+<td>成员数</td>
+<td>订阅数据</td>
+<td>在线设备</td>
+<td>在线成员</td>
+</th>
+<tr>
+<td></td>
+<td>{{device_num}}</td>
+<td>{{user_num}}</td>
+<td>{{sub_num}}</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+<h3>实时数据</h3>
+<table class="table">
+<th>#
+<td>设备名称</td>
+<td>对象名称</td>
+<td>资源名称</td>
+<td>当前值</td>
+</th>
+<tr ng-repeat="sub in sublist">
+<td>{{$index}}</td>
+<td>{{sub.device}}</td>
+<td>{{sub.object}}</td>
+<td>{{sub.resource}}</td>
+<td>{{sub.value}}</td>
+</tr>
+</table>
+</div> 
+</div>

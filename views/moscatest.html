@@ -1,0 +1,46 @@
+<!doctype html >
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+  <title>modular2Cloud</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/jquery-2.2.3.min.js"></script>
+   <script src="/js/angular.js"></script>
+   <script src="/js/angular-ui-router.min.js"></script>
+   <script src="/js/angular-modal-service.js"></script>   
+  <script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.serializejson.js"></script>
+	 <script src="/js/mqtt.js"></script> 
+  </head>
+  <script>
+  var index=0;
+var client  = mqtt.connect({ port: 15684, host: 'iot.maximlab.cn', keepalive: 10000})
+client.on('connect', function () { 
+   console.log("Connected to server");
+  client.subscribe('presence');
+  client.subscribe('hostMessage');
+  client.publish('presence', 'Hello mqtt')
+})
+client.on('message', function (topic, message) {
+  // message is Buffer
+  console.log("OK");
+  console.log(message.toString())
+$("#message").html(topic+":"+message.toString());
+})
+function publish()
+{
+  client.publish('presence', 'Hello mqtt'+index);
+  index++;
+}
+
+  </script>
+  <body>
+  <div class="container">
+  <h1>MOSCA Testing</h1>
+  <button onclick="publish()" class="btn btn-sm btn-info">Client发布</button>
+  <a href="/publish/?message='37.5'" class="btn btn-sm btn-info">Host发布</a>
+  <h2 >消息</h2>
+  <p id="message"></p>
+  </div>
+  </body>
+  </html>

@@ -1,0 +1,31 @@
+  <div class="page-header" >
+  <h1 class="text-info">添加人员</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+ <a href="#" class="list-group-item active">控制面板</a>
+   <a href="#/userlist" class="list-group-item">人员</a>
+  <a href="#/devicelist" class="list-group-item">设备</a>
+  <a href="#/devicecontrol" class="list-group-item">实时数据</a>
+  <a href="#/historyData" class="list-group-item">历史</a>
+  <a href="#/userChat" class="list-group-item">交流区</a>
+</div>
+  </div>
+    <div class="col-md-6" >	
+<form name="frmBlog" class="col-sm-8" role="form" >
+ <p class="form-signin-heading" style="text-align:center;">{{title}}</p>
+	<div class="form-group">
+		<label class="col-sm-4 control-label" for="username">成员名</label>	
+			<input type="text" class="form-control" id="username" name="username" placeholder="成员名" ng-model="username"/>	
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label" for="password">口令</label>	
+			<input type="text" class="form-control" id="password" name="password" placeholder="口令" ng-model="password"/>	
+	</div>
+   <button class="btn  btn-primary " ng-click="submit()">添加</button>
+    <button class="btn  btn-primary " ng-click="back()">返回</button>   
+ </form>
+
+</div>
+</div>

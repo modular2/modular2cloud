@@ -1,0 +1,104 @@
+  <div class="page-header" >
+  <h1 class="text-info">数据管理</h1>
+</div> 
+  <div class="row">
+  <div class="col-md-2">
+ <div class="list-group">
+  <a href="#/dashboard" class="list-group-item ">我的控制台</a>
+   <a href="#/devicelist" class="list-group-item ">人员</a>
+  <a href="#/devicelist" class="list-group-item">设备</a>
+  <a href="#/devicecontrol" class="list-group-item active">实时数据</a>
+  <a href="#/historyData" class="list-group-item">历史数据</a>
+   <a href="#/userChat" class="list-group-item">交流区</a>
+</div>
+  </div>
+<div class="col-md-6" >	
+<h3>设备</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th style="width:30%">设备ID</th>
+<th>设备名称</th>
+<th>工作状态</th>
+</tr>
+</thead>
+<tr>
+<td><select class="form-control" ng-model="deviceSelected"  ng-change="selDevice(deviceSelected)">
+  <option ng-repeat="id in idlist">{{id}}</option>
+</select></td>
+<td style="vertical-align: middle;">{{device_name}}</td>
+<td style="vertical-align: middle;">{{device_status}}</td>
+</tr>
+</table>
+<ul class="nav navbar-nav pull-right"> 
+<button class="btn btn-info btn-sm" type="submit" ng-click="ActiveDevice(deviceSelected)">激活</button> 
+</ul>
+<div style="margin-top:50px"></div>
+<h3>对象</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th style="width:30%">对象ID</th>
+<th>对象名称</th>
+</tr>
+</thead>
+<tr>
+<td><select class="form-control" ng-model="objSelected"  ng-change="selObject(objSelected)">
+  <option ng-repeat="obj in objlist">{{obj.id}}</option>
+</select></td>
+<td style="vertical-align: middle;">{{obj_name}}</td>
+</tr>
+</table>
+<div style="margin-top:50px"></div>
+<h3>资源</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th style="width:30%">资源ID</th>
+<th>资源名称</th>
+<th>资源类型</th>
+<th>当前值</th>
+</tr>
+</thead>
+<tr>
+<td><select class="form-control" ng-model="resSelected"  ng-change="selResource(resSelected)">
+  <option ng-repeat="res in reslist">{{res.id}}</option>
+</select></td>
+<td style="vertical-align: middle;">{{res_name}}</td>
+<td style="vertical-align: middle;">{{res_type}}</td>
+<td style="vertical-align: middle">{{res_value}}</td>
+</tr>
+</table>
+<ul class="nav navbar-nav pull-right">
+<button type="button " class="btn btn-info btn-sm"  ng-click="read()" >读出 </button>  
+<button type="button " class="btn btn-info btn-sm"  ng-click="write(res_value)" >写入 </button> 
+<button type="button " class="btn btn-info btn-sm"  ng-click="userSub()" >订阅 </button> 
+<button type="button " class="btn btn-info btn-sm"  ng-click="userUnSub()" >取消订阅 </button> 
+<button type="button " class="btn btn-info btn-sm"  ng-click="subscribe()" >设备订阅控制 </button> 
+</ul>
+<h3>操作：{{device_status}}</h3>
+</div> 
+</div>
+<script type="text/ng-template" id="modal.html">
+         <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{title}}</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+		    <label class="col-sm-4 control-label" for="devicename">{{name}}</label>	
+			<input type="text" class="form-control"  name="value" placeholder="{{value}}" ng-model="value"/>	
+	        </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">放弃</button>
+                <button type="button" ng-click="submit('Yes')" class="btn btn-primary" data-dismiss="modal">确认</button>
+              </div>
+            </div>
+          </div>
+        </div>
+</script>
+    
