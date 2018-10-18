@@ -95,8 +95,10 @@ var userSchema = new mongoose.Schema({
 + data 设备历史数据
 # MQTT Broker
   ## 用途
-  在modular2cloud 中，利用mosca 建立了一个MQTT Broker，它具有两个作用：
-  + 用于云端和客户端App 的即时通讯。
+  在modular2cloud 中，利用mosca 建立了一个MQTT Broker，它具有下面几个用途：
+  + 用于云端和客户端App的双向通信
+  + 客户端App 相互之间的即时通讯。
+     实现了物理设备，传感器，人员之间的相互交流平台。比如对电机的温度升高了，该如何处置，相关人员可以相互讨论。
   + 用于modular-2 通过MQTT 协议接入modular2Cloud
   ## topic 命名规则
   + 客户端之间发送的topic
